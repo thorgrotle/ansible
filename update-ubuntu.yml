@@ -1,7 +1,7 @@
 ---
-- name: Upgrade all packages (Ubuntu based systems)
-  ansible.builtin.apt:
-    name: "*"
-    state: latest
-    update_cache: yes
-    cache_valid_time: 3600
+- name: Update and upgrade apt packages
+  tasks:
+    - name: Update packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      apt:
+        update_cache: yes
