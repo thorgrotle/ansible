@@ -1,0 +1,17 @@
+---
+- name: Update and upgrade all packages
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Update packages with dnf
+      when: ansible_pkg_mgr == 'dnf'
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+
+    - name: Update packages with dnf
+      when: ansible_pkg_mgr == 'dnf'
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
