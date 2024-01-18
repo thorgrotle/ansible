@@ -9,9 +9,9 @@
       ansible.builtin.dnf:
         name: '*'
         state: latest
-
-    - name: Update packages with dnf
-      when: ansible_pkg_mgr == 'dnf'
-      ansible.builtin.dnf:
+    - name: Update packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      apt:
         name: '*'
         state: latest
+        update_cache: yes
