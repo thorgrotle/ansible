@@ -7,4 +7,6 @@
     - name: Update packages with apt
       when: ansible_pkg_mgr == 'apt'
       apt:
+        name: '*'
+        state: latest
         update_cache: yes
