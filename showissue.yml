@@ -4,3 +4,7 @@
   tasks:
     - name: Show Issue
       ansible.builtin.raw: cat /etc/issue
+      register: command_output
+
+    - name: Print to console
+      debug: msg = "{{command_output.stdout}}"
